@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 06 | Bitácora digital web</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="contenedor">
+
+        <header class="encabezado">
+            <h1>Práctica 06</h1>
+            <h2>Bitácora digital en HTML, CSS y JavaScript</h2>
+            <p>
+                En esta practica desarrollaras una bitacora digital funcional en entorno web.
+            </p>
+        </header>
+
+        <section class="panel">
+            <h3>Datos del alumno</h3>
+
+            <input type="text" id="nombre" placeholder="Nombre">
+            <input type="text" id="grupo" placeholder="Grupo">
+            <input type="date" id="fecha">
+        </section>
+
+        <section class="panel">
+            <h3>Registro</h3>
+
+            <input type="text" id="actividad" placeholder="Actividad">
+            <textarea id="descripcion" placeholder="Descripción"></textarea>
+            <textarea id="resultado" placeholder="Resultado"></textarea>
+            <textarea id="conclusion" placeholder="Conclusión"></textarea>
+        </section>
+
+        <section class="acciones">
+            <button id="btnMostrar">Vista previa</button>
+            <button id="btnGuardar">Guardar en Firebase</button>
+        </section>
+        
+        <section class="panel">
+            <h3>Vista previa</h3>
+            <div id="salida"></div>
+        </section>
+
+    </main>
+
+    <!-- 🔥 FIREBASE -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getFirestore, collection, addDoc } 
+        from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB4WNoKp14pemmwLLsXXcFbOm4wKnxSkoI",
+            authDomain: "pitagora-a9edd.firebaseapp.com",
+            projectId: "pitagora-a9edd",
+            storageBucket: "pitagora-a9edd.firebasestorage.app",
+            messagingSenderId: "445364020695",
+            appId: "1:445364020695:web:5d8ac4c8d918cfd0391792"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        window.db = db;
+        window.collection = collection;
+        window.addDoc = addDoc;
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
